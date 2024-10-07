@@ -1,11 +1,9 @@
 "use client";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Game({ min = 1, max = 100 }) {
-  const router = useRouter();
   const [number, setNumber] = useState(Math.floor(Math.random() * max) + 1);
   const [minGuess, setMinGuess] = useState(min);
   const [maxGuess, setMaxGuess] = useState(max);
