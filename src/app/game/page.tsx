@@ -54,51 +54,50 @@ export default function Game({ min = 1, max = 100 }) {
   };
 
   return (
-    <Container>
-      <Box
-        height="70vh"
-        display="flex"
-        flexDirection="column"
-        textAlign="center"
-        alignContent="center"
-      >
-        <Typography mt={8} variant="h1">
-          Guess the number between {minGuess} and {maxGuess}!
-        </Typography>
-        <Typography mt={8} p={3} variant="h6">
-          {tryeText}
-        </Typography>
-        <Box display="flex" justifyContent="space-between" p={2}>
-          <Box
-            width="50%"
-            component="form"
-            onSubmit={(e) => {
-              handleGuess();
-              e.preventDefault();
-            }}
-          >
-            {!isFinished ? (
-              <TextField
-                label="Guess"
-                variant="outlined"
-                type="number"
-                value={guess}
-                onChange={(e) => setGuess(e.target.value)}
-              />
-            ) : (
-              <Button variant="contained" onClick={() => restartGame()}>
-                Play Again
-              </Button>
-            )}
-          </Box>
-          <Box textAlign="center" width="50%">
-            <Typography variant="h6">Tries</Typography>
-            {tries.map((t, i) => (
-              <Typography key={i}>{t}</Typography>
-            ))}
-          </Box>
+    <Box
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      textAlign="center"
+      alignContent="center"
+    >
+      <Typography mt={8} variant="h1">
+        Guess the number between {minGuess} and {maxGuess}!
+      </Typography>
+      <Typography mt={8} p={3} variant="h6">
+        {tryeText}
+      </Typography>
+      <Box display="flex" justifyContent="space-between" p={2}>
+        <Box
+          width="50%"
+          component="form"
+          onSubmit={(e) => {
+            handleGuess();
+            e.preventDefault();
+          }}
+        >
+          {!isFinished ? (
+            <TextField
+              label="Guess"
+              variant="outlined"
+              type="number"
+              value={guess}
+              onChange={(e) => setGuess(e.target.value)}
+            />
+          ) : (
+            <Button variant="contained" onClick={() => restartGame()}>
+              Play Again
+            </Button>
+          )}
+        </Box>
+        <Box textAlign="center" width="50%">
+          <Typography variant="h6">Tries</Typography>
+          {tries.map((t, i) => (
+            <Typography key={i}>{t}</Typography>
+          ))}
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 }
